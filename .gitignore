@@ -21,4 +21,6 @@
 /vendor/bundle/
 
 #Ignore font files
-/stylesheets/fonts/
+.eot
+.woff
+.woff2
