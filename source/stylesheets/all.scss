@@ -1,0 +1,87 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: 'Eskell-Stencil';
+  src: url('fonts/EksellDisplayWeb-Stencil.eot'),
+       url('fonts/EksellDisplayWeb-Stencil.woff2') format('woff2'),
+       url('fonts/EksellDisplayWeb-Stencil.woff') format('woff');
+       font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Eskell-Med';
+  src: url('fonts/EksellDisplayWeb-Large.eot'),
+       url('fonts/EksellDisplayWeb-Large.woff2') format('woff2'),
+       url('fonts/EksellDisplayWeb-Large.woff') format('woff');
+       font-weight: normal;
+}
+
+$cream: #fcefcb;
+$navy: #0c0a33;
+$blue: #6cd6cb;
+$sky: #d1e7ce;
+
+body {
+  background-color: $sky;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+::selection {
+  background: $blue;
+}
+
+h1 {
+  font-family: 'Eskell-Stencil';
+  font-size: 11em;
+  color: $cream;
+  font-weight: normal;
+  margin: 0;
+}
+
+h2 {
+  font-family: 'Eskell-Med';
+  color: $navy;
+  font-size: 2.2em;
+  margin: 0;
+  margin-top: -25px;
+}
+
+p {
+  font-family: monospace;
+  color: $navy;
+}
+
+h1::selection {
+  color: $navy;
+  background: $blue;
+}
+
+h2::selection {
+  color: $cream;
+}
+
+span {
+  color: $blue;
+}
+
+span::selection {
+  background: $navy;
+}
+
+a {
+  text-decoration: none;
+  color: $blue;
+}
+
+a:hover {
+  color: $cream;
+  transition: ease .5s;
+}
+
+.headline {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
