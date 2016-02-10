@@ -21,4 +21,4 @@
 /vendor/bundle/
 
 #Ignore font files
-/stylesheets/fonts
+/stylesheets/fonts/
