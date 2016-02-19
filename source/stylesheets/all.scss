@@ -8,6 +8,8 @@
        font-weight: normal;
 }
 
+$Stencil: 'Eskell-Stencil';
+
 @font-face {
   font-family: 'Eskell-Med';
   src: url('fonts/EksellDisplayWeb-Large.eot'),
@@ -16,15 +18,29 @@
        font-weight: normal;
 }
 
+$Med: 'Eskell-Med';
+
+@font-face {
+  font-family: 'Eskell-Sm';
+  src: url('fonts/EksellDisplayWeb-Small.eot'),
+       url('fonts/EksellDisplayWeb-Small.woff2') format('woff2'),
+       url('fonts/EksellDisplayWeb-Small.woff') format('woff');
+       font-weight: normal;
+}
+
+$Sm: 'Eskell-Sm';
+
 $cream: #fcefcb;
 $navy: #0c0a33;
 $blue: #6cd6cb;
 $sky: #d1e7ce;
+$skytwo: #c2e5e0;
 
 body {
   background-color: $sky;
   text-align: center;
   font-family: sans-serif;
+  transition: ease .3s;
 }
 
 ::selection {
@@ -32,15 +48,16 @@ body {
 }
 
 h1 {
-  font-family: 'Eskell-Stencil';
-  font-size: 11em;
+  font-family: $Stencil;
+  font-size: 8em;
   color: $cream;
   font-weight: normal;
   margin: 0;
+  line-height: 0.8em;
 }
 
 h2 {
-  font-family: 'Eskell-Med';
+  font-family: $Med;
   color: $navy;
   font-size: 2.2em;
   margin: 0;
@@ -48,7 +65,7 @@ h2 {
 }
 
 p {
-  font-family: monospace;
+  font-family: $Sm;
   color: $navy;
 }
 
@@ -75,13 +92,50 @@ a {
 }
 
 a:hover {
-  color: $cream;
+  color: $navy;
   transition: ease .5s;
+}
+
+a::selection {
+  background-color: $cream;
 }
 
 .headline {
   height: 100vh;
+  width: 50vw;
+  float: left;
+  position: static;
+  background-color: $sky;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.right {
+  overflow: scroll;
+  width: 50vw;
+  float: right;
+
+  .contents {
+    height: 100vh;
+    background-color: $skytwo;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    overflow: scroll;
+
+    .inner {
+      // padding-left: 4.5em;
+    }
+
+    h2 {
+      text-align: left;
+      color: $navy;
+      margin: 0;
+    }
+
+  }
+
 }
