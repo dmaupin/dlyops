@@ -30,14 +30,53 @@ $Med: 'Eskell-Med';
 
 $Sm: 'Eskell-Sm';
 
+@import url("//hello.myfonts.net/count/306f86");
+
+  
+@font-face {
+  font-family: 'GillSansNova-Bold';
+  src: url('fonts/306F86_0_0.eot');
+  src: url('fonts/306F86_0_0.eot?#iefix') format('embedded-opentype'),
+       url('fonts/306F86_0_0.woff2') format('woff2'),
+       url('fonts/306F86_0_0.woff') format('woff'),
+       url('fonts/306F86_0_0.ttf') format('truetype');
+}
+
+$SansBold: 'GillSansNova-Bold'; 
+  
+@font-face {
+  font-family: 'GillSansNova-Book';
+  src: url('fonts/306F86_1_0.eot');
+  src: url('fonts/306F86_1_0.eot?#iefix') format('embedded-opentype'),
+       url('fonts/306F86_1_0.woff2') format('woff2'),
+       url('fonts/306F86_1_0.woff') format('woff'),
+       url('fonts/306F86_1_0.ttf') format('truetype');
+}
+ 
+$Text: 'GillSansNova-Book';
+  
+@font-face {
+  font-family: 'GillSansNova-BookItalic';
+  src: url('fonts/306F86_2_0.eot');
+  src: url('fonts/306F86_2_0.eot?#iefix') format('embedded-opentype'),
+       url('fonts/306F86_2_0.woff2') format('woff2'),
+       url('fonts/306F86_2_0.woff') format('woff'),
+       url('fonts/306F86_2_0.ttf') format('truetype');
+}
+
+$Italic: "$SansBold: 'GillSansNova-BoldItalic';";
+
 $cream: #fcefcb;
-$navy: #0c0a33;
+$navy: black;
 $blue: #6cd6cb;
 $sky: #d1e7ce;
 $skytwo: #c2e5e0;
 
+// 
+
 body {
-  background-color: $sky;
+  background-color: white;
+  animation: fadein 2s;
   text-align: center;
   font-family: sans-serif;
   transition: ease .3s;
@@ -50,7 +89,7 @@ body {
 h1 {
   font-family: $Stencil;
   font-size: 8em;
-  color: $cream;
+  color: white;
   font-weight: normal;
   margin: 0;
   line-height: 0.8em;
@@ -61,43 +100,57 @@ h2 {
   color: $navy;
   font-size: 2.2em;
   margin: 0;
-  margin-top: -25px;
+  display: inline-block;
 }
 
 p {
   font-family: $Sm;
   color: $navy;
+  margin: 0;
 }
 
 h1::selection {
-  color: $navy;
+  color: black;
   background: $blue;
 }
 
 h2::selection {
-  color: $cream;
+  color: blue;
+}
+
+h2:hover:before {
+  content: "";
+  height: 10px;
+  width: 100%;
+  background-color: red;
 }
 
 span {
-  color: $blue;
+  color: black;
 }
 
 span::selection {
-  background: $navy;
+  background: yellow;
 }
 
 a {
   text-decoration: none;
-  color: $blue;
+  color: $navy;
 }
 
 a:hover {
-  color: $navy;
+  color: black;
   transition: ease .5s;
 }
 
 a::selection {
-  background-color: $cream;
+  background-color: red;
+}
+
+a:after {
+  content: "";
+  height: 10px;
+  width: auto;
 }
 
 .headline {
@@ -105,11 +158,34 @@ a::selection {
   width: 50vw;
   float: left;
   position: static;
-  background-color: $sky;
+  background-color: transparent;
   position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10101;
+}
+
+#layer1 { 
+  background: url('/images/background_1a.png');
+  width: 40vw;
+  height: 80vh;
+  margin: 10vh 5vw;
+  float: left;
+  // padding: 100%;
+  -webkit-animation:bgscroll 500s infinite linear;
+  position: fixed;
+  overflow: hidden;
+}
+
+#layer2 { 
+  background: url('/images/background_2a.png'); 
+  width: 30vw;
+  height: 62vh;
+  margin: 19vh 10vw;
+  float: left;
+  position: fixed;
+  -webkit-animation:bgscrolltwo 55s infinite linear;
 }
 
 .right {
@@ -119,23 +195,73 @@ a::selection {
 
   .contents {
     height: 100vh;
-    background-color: $skytwo;
+    background-color: #F7F7F7;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: left;
     overflow: scroll;
 
-    .inner {
-      // padding-left: 4.5em;
-    }
-
     h2 {
       text-align: left;
-      color: $navy;
+      color: black;
       margin: 0;
+    }
+
+    a {
+      font-family: $SansBold;
+    }
+
+    .inner {
+      
+      a {
+        appearance: none;
+        font-family: $Med;
+        color: $navy;
+        // font-size: 2.2em;
+        margin: 0;
+        display: inline-block;
+      }
+    }
+
+    p {
+      font-family: $Text;
     }
 
   }
 
+}
+
+   // h2:before {
+   //    content: "";
+   //    display: block;
+   //    position: absolute;
+   //    height: 10px;
+   //    width: 0;
+   //    background: transparent;
+   //    transition: width 3s ease;
+   //    margin-top: .55em;
+   //  }
+
+   //  h2:hover:before {
+   //    height: 10px;
+   //    width: 100%;
+   //    background: rgba(255,255,255,.75);
+   //    display: inline-block;
+   //  }
+// animation
+
+@keyframes fadein {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes bgscroll {
+    from {background-position:0 0;}
+    to {background-position:0 1920%;}
+}
+
+@-webkit-keyframes bgscrolltwo {
+    from {background-position:0 0;}
+    to {background-position:0 1920px;}
 }
