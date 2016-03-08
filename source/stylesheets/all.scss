@@ -1,3 +1,6 @@
+@import "bourbon";
+@import "neat";
+
 @charset "utf-8";
 
 @font-face {
@@ -72,6 +75,8 @@ $blue: #6cd6cb;
 $sky: #d1e7ce;
 $skytwo: #c2e5e0;
 
+$break1: new-breakpoint(max-width 600px);
+
 // 
 
 body {
@@ -81,6 +86,7 @@ body {
   font-family: sans-serif;
   transition: ease .3s;
 }
+
 
 ::selection {
   background: $blue;
@@ -93,6 +99,10 @@ h1 {
   font-weight: normal;
   margin: 0;
   line-height: 0.8em;
+
+  @include media ($break1) {
+    color: black;
+  }
 }
 
 h2 {
@@ -157,13 +167,18 @@ a:after {
   height: 100vh;
   width: 50vw;
   float: left;
-  position: static;
   background-color: transparent;
   position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 10101;
+
+  @include media($break1) {
+    width: 100%;
+    position: inherit;
+  }
+
 }
 
 #layer1 { 
@@ -176,6 +191,10 @@ a:after {
   -webkit-animation:bgscroll 500s infinite linear;
   position: fixed;
   overflow: hidden;
+
+  @include media($break1) {
+    display: none;
+  }
 }
 
 #layer2 { 
@@ -186,12 +205,22 @@ a:after {
   float: left;
   position: fixed;
   -webkit-animation:bgscrolltwo 55s infinite linear;
+
+  @include media($break1) {
+    display: none;
+  }
+
 }
 
 .right {
   overflow: scroll;
   width: 50vw;
   float: right;
+
+  @include media ($break1) {
+    float: none;
+    width: 100%;
+  }
 
   .contents {
     height: 100vh;
@@ -206,7 +235,12 @@ a:after {
       text-align: left;
       color: black;
       margin: 0;
-    }
+
+      @include media($break1) {
+        font-size: 1.65em;
+      }
+
+     }
 
     a {
       font-family: $SansBold;
